@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Classification with RoBERTa</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='modelresult.css') }}">
+
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-logo">
+            <p>CalmSea</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#" class="link active">Home</a></li>
+                <li><a href="{{ url_for('contact') }}" class="link">Contact Us</a></li>
+                <li><a href="{{ url_for('about') }}" class="link">About Us</a></li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            {% if session['user_name'] %}
+                <form action="{{ url_for('logout') }}" method="post" style="display:inline;">
+                    <button class="btn white-btn" id="logoutBtn">Logout</button>
+                </form>
+            {% else %}
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
+                <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+            {% endif %}
+        </div>
+        <div class="nav-menu-btn">
+            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Your Brain’s Little Adventure!</h1>
+
+        <form method="POST" action="\modelresult">
+            <label for="text">Enter Text:</label>
+            <textarea id="text" name="text" rows="4" placeholder="Type your text here..." required></textarea><br>
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if predicted_class %}
+            <div class="result">
+                <h2>Prediction Results:</h2>
+                <p><strong>Mental Health Insight:</strong> {{ predicted_class }}</p>
+                <p><strong>Confidence:</strong> {{ confidence }}%</p>
+            </div>
+        {% endif %}
+    </div>
+    <script>
+          function myMenuFunction() {
+            var i = document.getElementById("navMenu");
+
+            if (i.className === "nav-menu") {
+                i.className += " responsive";
+            } else {
+                i.className = "nav-menu";
+            }
+        }
+    </script>
+</body>
+</html>

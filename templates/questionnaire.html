@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Test</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='questionnaries.css') }}">
+
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-logo">
+            <p>CalmSea</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#" class="link active">Home</a></li>
+                <li><a href="{{ url_for('contact') }}" class="link">Contact Us</a></li>
+                <li><a href="{{ url_for('about') }}" class="link">About Us</a></li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            {% if session['user_name'] %}
+                <form action="{{ url_for('logout') }}" method="post" style="display:inline;">
+                    <button class="btn white-btn" id="logoutBtn">Logout</button>
+                </form>
+            {% else %}
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
+                <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+            {% endif %}
+        </div>
+        <div class="nav-menu-btn">
+            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Depression Test</h1>
+        <form id="depressionForm" action="{{ url_for('results') }}" method="POST">
+            <input type="hidden" name="q1" id="q1_input">
+            <input type="hidden" name="q2" id="q2_input">
+            <input type="hidden" name="q3" id="q3_input">
+            <input type="hidden" name="q4" id="q4_input">
+            <input type="hidden" name="q5" id="q5_input">
+            <input type="hidden" name="q6" id="q6_input">
+            <input type="hidden" name="q7" id="q7_input">
+            <input type="hidden" name="q8" id="q8_input">
+            <input type="hidden" name="q9" id="q9_input">
+            <input type="hidden" name="q10" id="q10_input">
+            <input type="hidden" name="q11" id="q11_input">
+            <input type="hidden" name="q12" id="q12_input">
+            <input type="hidden" name="q13" id="q13_input">
+
+            <!-- Question Divs -->
+        <div class="question" id="q1">
+            <label>1. Have you recently lost interest or pleasure in activities?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(1, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(1, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(1, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(1, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q2">
+            <label>2. Have you felt down, sad, or hopeless lately?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(2, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(2, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(2, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(2, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q3">
+            <label>3. Have you had trouble falling asleep or staying asleep?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(3, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(3, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(3, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(3, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q4">
+            <label>4. Have you often felt tired or low on energy?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(4, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(4, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(4, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(4, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q5">
+            <label>5. Have you been feeling bad about yourself?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(5, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(5, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(5, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(5, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q6">
+            <label>6. Do you have trouble concentrating on daily activities?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(6, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(6, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(6, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(6, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q7">
+            <label>7. Have others noticed that you move or speak more slowly than usual?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(7, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(7, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(7, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(7, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q8">
+            <label>8. Do you often feel restless or fidgety?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(8, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(8, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(8, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(8, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q9">
+            <label>9. Have you had thoughts about self-harm or that you would be better off gone?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(9, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(9, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(9, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(9, 4)">Nearly every day</button>
+        </div>
+        <div class="question" id="q10">
+            <label>10. Have you been experiencing loss of appetite or frequent overeating?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(10, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(10, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(10, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(10, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q11">
+            <label>11. Do you find it difficult to make decisions?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(11, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(11, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(11, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(11, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q12">
+            <label>12. Have you felt anxious or worried frequently?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(12, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(12, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(12, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(12, 3)">Nearly every day</button>
+        </div>
+        <div class="question" id="q13">
+            <label>13. Have you lost interest in social activities or spending time with others?</label>
+            <button type="button" class="answer-btn" onclick="selectAnswer(13, 0)">Not at all</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(13, 1)">Several days</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(13, 2)">Almost every other day</button>
+            <button type="button" class="answer-btn" onclick="selectAnswer(13, 3)">Nearly every day</button>
+        </div>
+        
+            <button type="submit" class="submit-btn" id="submit">Submit</button>
+            <button type="button" class="previous-btn" id="previous" onclick="goBack()">Previous</button>
+        </form>
+    </div>
+
+    <script>
+        let currentQuestion = 1; // Track the current question
+
+        function selectAnswer(questionNumber, score) {
+            // Update the hidden input with the selected score
+            document.getElementById(`q${questionNumber}_input`).value = score;
+
+            // Hide the current question
+            document.getElementById(`q${currentQuestion}`).style.display = 'none';
+
+            // Increment current question
+            currentQuestion++;
+
+            // Show the next question or the submit button
+            if (currentQuestion > 13) {
+                document.getElementById('submit').style.display = 'block';
+            } else {
+                document.getElementById(`q${currentQuestion}`).style.display = 'block';
+                document.getElementById('previous').style.display = 'block'; // Show previous button
+            }
+            if (currentQuestion === 2) {
+            document.getElementById('previous').disabled = false; // Enable previous button after first question
+        }
+    }
+        
+        function myMenuFunction() {
+            var i = document.getElementById("navMenu");
+
+            if (i.className === "nav-menu") {
+                i.className += " responsive";
+            } else {
+                i.className = "nav-menu";
+            }
+        }
+        function goBack() {
+            // Hide the current question
+            document.getElementById(`q${currentQuestion}`).style.display = 'none';
+
+            // Decrement current question
+            currentQuestion--;
+
+            // Show the previous question
+            document.getElementById(`q${currentQuestion}`).style.display = 'block';
+
+            // Update previous button visibility
+            document.getElementById('previous').disabled = currentQuestion === 1; // Disable previous button on first question
+
+            // Hide submit button if going back
+            document.getElementById('submit').style.display = 'none';
+        }
+
+        // Initialize the first question
+        window.onload = function() {
+            document.getElementById('q1').style.display = 'block';
+            document.getElementById('previous').disabled = true;  
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+/* Base styling for the body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('/static/images/image-2.jpg'); /* Ensure this file is in the static folder */
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Container styling */
+.container {
+  max-width: 700px;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(208, 210, 238, 0.4);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+}
+/* Wrapper for flex layout */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 110vh;
+  background: rgba(39, 39, 39, 0.4);
+}
+
+/* Heading styling */
+h1 {
+  font-size: 35px;
+  color: #00796b;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Hover effect for heading span elements */
+h1 span:hover {
+  font-size: 38px;
+  color: #004d40;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 20px;
+  color: #00796b;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Gooey button */
+.c-button {
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 0.9em 1.6em;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+}
+
+.c-button--gooey {
+  color: #00796b;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 4px solid #00796b;
+  position: relative;
+  transition: all 0.5s ease;
+  border-radius: 999px;
+}
+
+.c-button--gooey .c-button__blobs {
+  height: 100%;
+  filter: url(#goo);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -3px;
+  right: -1px;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.c-button--gooey .c-button__blobs div {
+  background-color: #004d40;
+  width: 34%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  transform: scale(1.4) translateY(125%);
+  transition: all 0.5s ease;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(1) {
+  left: -5%;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(2) {
+  left: 30%;
+  transition-delay: 60ms;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(3) {
+  left: 66%;
+  transition-delay: 25ms;
+}
+
+.c-button--gooey:hover {
+  color: #fff;
+  background-color: #00796b;
+}
+
+.c-button--gooey:hover .c-button__blobs div {
+  transform: scale(1.4) translateY(0);
+}
+.nav{
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  background: linear-gradient(rgba(39,39,39, 0.6), transparent);
+  z-index: 100;
+}
+.nav-logo p {
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  animation: colorScale 2s ease-in-out infinite;
+}
+
+/* Define the keyframes for color and scale animation */
+@keyframes colorScale {
+  0% {
+      color: #ffffff;
+      transform: scale(1);
+  }
+  50% {
+      color: #fff; /* You can change this to any color you prefer */
+      transform: scale(1.1); /* Slightly scales up the text */
+  }
+  100% {
+      color: #ffffff;
+      transform: scale(1);
+  }
+}
+
+.nav-menu ul{
+  display: flex;
+}
+.nav-menu ul li{
+  list-style-type: none;
+}
+.nav-menu ul li .link{
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+  padding-bottom: 15px;
+  margin: 0 25px;
+}
+.link:hover, .active{
+  border-bottom: 2px solid #fff;
+}
+.nav-button .btn{
+  width: 130px;
+  height: 40px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.btn:hover{
+    background: rgba(255, 255, 255, 0.3);
+}
+#registerBtn{
+    margin-left: 15px;
+}
+.btn.white-btn{
+    background: rgba(255, 255, 255, 0.7);
+}
+.btn.btn.white-btn:hover{
+    background: rgba(255, 255, 255, 0.5);
+}
+.nav-menu-btn{
+    display: none;
+}
+@media only screen and (max-width: 786px){
+  .nav-button{
+      display: none;
+  }
+  .nav-menu.responsive{
+      top: 100px;
+  }
+  .nav-menu{
+      position: absolute;
+      top: -800px;
+      display: flex;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.2);
+      width: 100%;
+      height: 90vh;
+      backdrop-filter: blur(20px);
+      transition: .3s;
+  }
+  .nav-menu ul{
+      flex-direction: column;
+      text-align: center;
+  }
+  .nav-menu-btn{
+      display: block;
+  }
+  .nav-menu-btn i{
+      font-size: 25px;
+      color: #fff;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: .3s;
+  }
+  .nav-menu-btn i:hover{
+      background: rgba(255, 255, 255, 0.15);
+  }
+}
+/* Animation for the fade-in effect */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

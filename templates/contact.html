@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <link rel="stylesheet" href="/static/style.css"> -->
+    <title>Contact Us</title>
+    <style>
+        /* Existing styles and animations */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+
+        body {
+            overflow-x: hidden;
+            background: none; /* Remove the background directly from body */
+            font-family: 'Arial', sans-serif;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('/static/images/image-2.jpg'); /* Ensure this file is in the static folder */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(1.2) blur(2px); /* Brightness and blur effect */
+            z-index: -1; /* Ensure the pseudo-element stays behind the content */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .nav-logo p {
+            color: white;
+            font-size: 30px;
+            font-weight: 600;
+            animation: colorScale 3s ease-in-out infinite;
+        }
+        .nav{
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            background: radial-gradient(circle, rgba(83, 207, 211, 0.688) 30%, rgba(62, 207, 244, 0.4));
+            z-index: 100;
+            animation: navSlideIn 0.5s ease-in-out;
+        }
+        @keyframes navSlideIn {
+            0% {
+            transform: translateY(-100%);
+            }
+            100% {
+            transform: translateY(0);
+            }
+        }
+
+        .nav-menu ul{
+            display: flex;
+            }
+
+        .nav-menu ul li{
+            list-style-type: none;
+            font-size: 18px;
+            font-weight: bold;
+            color:#079ca1;
+            }
+        .nav-menu ul li a:hover{
+            color:#079ca1;
+            font-size:19px;
+            font-weight: 900;
+            }
+        .nav-menu ul li .link{
+            text-decoration: none;
+            font-weight: 700;
+            color:#05878c;
+            padding-bottom: 15px;
+            margin: 0 25px;
+            }
+
+        .link:hover, .active{
+            border-bottom: 2px solid #07b19d;
+
+        }
+        .nav-button .btn{
+            width: 130px;
+            height: 40px;
+            font-weight: 500;
+            background: rgba(5, 157, 155, 0.825);
+            border: none;
+            color:#fff;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover{
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color:#05878c;
+        }
+        #registerBtn{
+            margin-left: 15px;
+        }
+        .btn.white-btn{
+            background:  rgba(5, 157, 155, 0.825);
+            color: #fff;
+            }
+        .btn.btn.white-btn:hover{
+            background: rgba(255, 255, 255, 0.5);
+            color:#079ca1;
+            }
+        .nav-menu-btn{
+            display: none;
+        }
+        @media only screen and (max-width: 786px){
+    .nav-button{
+        display: none;
+    }
+    .nav-menu.responsive{
+        top: 100px;
+    }
+    .nav-menu{
+        position: absolute;
+        top: -800px;
+        display: flex;
+        justify-content: center;
+        background: rgba(5, 132, 134, 0.211);
+        width: 100%;
+        height: 90vh;
+        backdrop-filter: blur(20px);
+        transition: .3s;
+    }
+    .nav-menu ul{
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-menu-btn{
+        display: block;
+    }
+    .nav-menu-btn i{
+        font-size: 25px;
+        color: #fff;
+        padding: 10px;
+        background: rgba(5, 136, 119, 0.599);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .3s;
+    }
+    .nav-menu-btn i:hover{
+        background: rgba(255, 255, 255, 0.15);
+    }
+    .nav-menu ul li{
+    list-style-type: none;
+    font-size: 18px;
+    font-weight: bold;
+     color:#fff;
+}
+.nav-menu ul li a:hover{
+    color:#fff;
+    font-size:20px;
+    
+}
+.nav-menu ul li .link{
+    text-decoration: none;
+    font-weight: 700;
+    color:#fff;
+    padding-bottom: 15px;
+    margin: 0 25px;
+}
+
+.link:hover, .active{
+    border-bottom: 2px solid #07b19d;
+   
+}
+}.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* box-shadow: 0 8px 32px rgba(208, 210, 238, 0.4); */
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+.contact-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.contact-section form {
+    max-width: 500px;
+    width:100%;
+    height:400px;
+    padding: 3rem;
+    background: rgba(225, 249, 249, 0.582);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 -20px 50px rgba(44, 160, 162, 0.581), /* Upper shadow */
+              0 40px 50px  rgba(44, 160, 162, 0.582);  /* Lower shadow */
+}
+
+.contact-section .input-box {
+    margin-bottom: 20px;
+}
+
+.contact-section textarea {
+    resize: none;
+}
+
+.contact-section .submit {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+}
+header{
+    color:#00796b;;
+    font-size: 35px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 1s ease-out;
+    background: linear-gradient(45deg, #006064, #00838f, #0097a7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    background-size: 200% auto;
+    animation: textGradient 5s linear infinite;
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes textGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes colorScale {
+    0% {
+        color: #07a3a9;
+        transform: scale(1.1);
+    }
+    50% {
+        color: #079ca1; /* You can change this to any color you prefer */
+        transform: scale(1.2); /* Slightly scales up the text */
+    }
+    100% {
+        color: #006064;
+        transform: scale(1.1);
+    }
+}
+
+        .btn:hover {
+            background-color: #6A82FB;
+            transform: scale(1.05);
+        }
+
+        .input-field:focus {
+            border-color: #6A82FB;
+            box-shadow: 0 0 10px rgba(106, 130, 251, 0.5);
+        }
+
+        .link:hover::after {
+            width: 100%;
+        }
+
+        .link:hover {
+            color: #6A82FB;
+        }
+
+        .submit:hover {
+            background-color: #6A82FB;
+            transform: scale(1.05);
+        }
+
+        /* Social links styling */
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-links a {
+            margin: 0 20px;
+            color: #fff;
+            font-size: 36px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #6A82FB;
+            transform: scale(1.2); /* Slightly enlarge the icons on hover */
+        }
+        .two-forms{
+    display: flex;
+    gap: 10px;
+}
+.input-field{
+    font-size: 15px;
+    background: rgba(4, 138, 145, 0.5);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px 0 45px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: .2s ease;
+}
+.input-field:hover, .input-field:focus{
+    background: rgba(255, 255, 255, 0.25);
+    
+}
+::-webkit-input-placeholder{
+    color: #fff;
+}
+.input-box i{
+    position: relative;
+    top: -35px;
+    left: 17px;
+    color: #fff;
+}
+.submit{
+    font-size: 15px;
+    font-weight: 500;
+    color: #079ca1;
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    box-shadow: 1px 5px 7px 1px rgba(7, 174, 163, 0.599);
+}
+textarea {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            resize: vertical;
+            background: #078d8d5d;
+            transition: all 0.3s;
+            border: 2px solid #05878c;
+        }
+.submit:hover{
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+#text{
+    color: #fff;
+    font-size: 1rem;
+}
+.two-col{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: small;
+    margin-top: 10px;
+}
+.two-col .one{
+    display: flex;
+    gap: 5px;
+}
+.two label a{
+    text-decoration: none;
+    color: #fff;
+}
+.two label a:hover{
+    text-decoration: underline;
+}
+</style>
+   
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>CalmSea</p>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="{{ url_for('index') if session.get('user_id') is not none else url_for('options') }}" class="link">Home</a></li>
+                    <li><a href="#" class="link active">Contact Us</a></li>
+                    <li><a href="{{ url_for('about') }}" class="link">About Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                {% if session['user_name'] %}
+                    <form action="{{ url_for('logout')}}" method="post" style="display:inline;">
+                        <button class="btn white-btn" id="logoutBtn" >Logout</button>
+                    </form>
+                {% else %}
+                    <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
+                    <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+                {% endif %}
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <div class="contact-section">
+            <header>Contact Us</header>
+            
+            <form action="{{ url_for('send_email')}}" method="POST">
+                <div class="input-box">
+                    <input type="text" class="input-field" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" class="input-field" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="input-box">
+                    <textarea id="text" name="text" rows="4" placeholder="Give us Message...." required></textarea><br>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Send Message">
+                </div>
+            </form>
+
+            <!-- Social links section -->
+            <div class="social-links">
+                <a href="mailto:youremail@example.com" title="Email Us"><i class='bx bx-envelope'></i></a>
+                <a href="https://www.linkedin.com/in/dhruvi-mahale-4aa072258?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="LinkedIn Profile" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.instagram.com/_d_hruvi__/" title="Instagram Profile" target="_blank"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>function myMenuFunction() {
+        var i = document.getElementById("navMenu");
+        if (i.className === "nav-menu") {
+            i.className += " responsive";
+        } else {
+            i.className = "nav-menu";
+        }
+    }</script>
+</body>
+</html>

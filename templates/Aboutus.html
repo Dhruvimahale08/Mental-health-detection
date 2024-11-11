@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>About Us - CalmSea</title>
+    <style>
+        .wrapper {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>CalmSea</p>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="{{ url_for('index') if session.get('user_id') is not none else url_for('option') }}" class="link">Home</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="link">Contact Us</a></li>
+                    <li><a href="#" class="link active">About Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                {% if session.get('user_name') %}
+                <form action="{{ url_for('logout') }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn white-btn" id="logoutBtn">Logout</button>
+                </form>
+            {% else %}
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
+                <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+            {% endif %}
+            
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>    
+
+        <!----------------------------- About Us Section ----------------------------------->
+        <div class="container">
+            <div class="about-us">
+                <header>About Us</header>
+                <p>Welcome to CalmSea, your companion for mental well-being. We are a dedicated team of two passionate individuals striving to make mental health detection more accessible through technology.
+
+                    <p>Our goal is to provide a platform that helps individuals understand their emotional state through innovative machine learning models. At CalmSea, we believe that early detection of stress, PTSD, and other mental health symptoms can lead to more timely interventions and better overall well-being.
+                    
+                    Through our platform, users can input their feelings in either English or Gujarati, and our intelligent system analyzes the text to provide insightful feedback on potential mental health conditions.
+                    
+                    <p>We are committed to fostering a safe and supportive environment for mental health monitoring, empowering users to take proactive steps toward better mental health.
+                    
+                    Together, let's navigate the waves of life with CalmSea.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function myMenuFunction() {
+            var i = document.getElementById("navMenu");
+            if (i.className === "nav-menu") {
+                i.className += " responsive";
+            } else {
+                i.className = "nav-menu";
+            }
+        }
+    </script>
+</body>
+
+</html>

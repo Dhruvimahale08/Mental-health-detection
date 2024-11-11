@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+    
+</head>
+<body>
+   
+    <div class="spinner-container" id="loading">
+        <!-- <div class="message" id="result-message">
+          <img src=""
+        </div> -->
+        <div class="spinner">
+            <img src="/static/images/icon.jpg" alt="Loading...">
+        </div>
+    </div>
+
+    <!-- Results Container -->
+    <div class="container" id="results-container">
+        <div class="message">
+            <span class="typewriter">Your depression status has been analyzed.</span>
+        </div>
+        <div class="score-container">
+            <div class="score-text">Your Score: {{ score }}</div>
+            <div class="depression-status">
+                {% if score <= 2 %}
+                    No Depression
+                {% elif score <= 5 %}
+                    Mild Depression
+                {% elif score <= 10 %}
+                    Moderate Depression
+                {% else %}
+                    Severe Depression
+                {% endif %}
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: {{ score * 5 }}%;"></div>
+            </div>
+        </div>
+       
+        <!-- Joyful Messages -->
+       
+
+        <!-- Recommendations based on the score -->
+        <div class="recommendations">
+            <h3>Recommendations:</h3>
+            <ul>
+                {% if score <= 2 %}
+                    <li style="--order: 1;">Stay positive and maintain your mental well-being.</li>
+                    <li style="--order: 2;">Keep doing what you're doing—you're on the right track!</li>
+                    <li style="--order: 3;">Celebrate your mental health achievements!</li>
+                {% elif score < 5 %}
+                    <li style="--order: 1;">Maintain a healthy lifestyle with regular physical activity.</li>
+                    <li style="--order: 2;">Engage in social activities to stay connected with friends and family.</li>
+                    <li style="--order: 3;">Practice mindfulness and relaxation techniques to manage stress.</li>
+                {% elif score < 10 %}
+                    <li style="--order: 1;">Incorporate light physical exercises like walking or yoga into your daily routine.</li>
+                    <li style="--order: 2;">Spend time on hobbies or activities that you enjoy to keep your mind engaged.</li>
+                    <li style="--order: 3;">Consider discussing your feelings with a trusted friend or counselor.</li>
+                {% elif score < 15 %}
+                    <li style="--order: 1;">Seek support from a licensed therapist or counselor to talk through your emotions.</li>
+                    <li style="--order: 2;">Explore support groups or community programs for mental health.</li>
+                    <li style="--order: 3;">Establish a daily routine that includes exercise, balanced meals, and adequate sleep.</li>
+                    <li style="--order: 4;"><a href="https://www.youtube.com/watch?v=inpok4MKVLM" target="_blank">10-Minute Guided Meditation for Anxiety & Stress</a></li>
+                    <li style="--order: 5;"><a href="https://www.youtube.com/watch?v=1vx8iUvfyCY" target="_blank">Relaxing Breathwork for Calmness</a></li>
+                    <div class="recommendations">
+                        <p>If you're feeling moderate to severe symptoms, consider exploring deeper insights through text classification.</p>
+                        <a href="/modelresult" class="go-to-classification-btn">Go to Text Classification</a>
+                    </div>
+                {% else %}
+                    <li style="--order: 1;">Schedule an appointment with a mental health professional as soon as possible.</li>
+                    <li style="--order: 2;">Here are some of the best doctors you can consult: <a href="https://www.practo.com/ahmedabad/psychiatrist?utm_source=opd_google_Pmax&utm_campaign=20240701849&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YGBqoToiSPYq6P1WSmkMSe2I5rx-7951CJTOm2-a2KEXxd6EFAlU5BoCi9UQAvD_BwE">Check here</a></li>
+                    <li style="--order: 3;"><a href="https://www.youtube.com/watch?v=ZToicYcHIOU" target="_blank">30-Minute Stress Relief Yoga</a></li>
+                    <li style="--order: 4;"><a href="https://www.youtube.com/watch?v=O-6f5wQXSu8" target="_blank">Mindfulness Meditation for Healing</a></li>
+                    <div class="recommendations">
+                        <p>If you're feeling moderate to severe symptoms, consider exploring deeper insights through text classification.</p>
+                        <a href="/modelresult" class="go-to-classification-btn">Go to Text Classification</a>
+                    </div>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="joyful-message">
+            <span class="typewriter">Congratulations, you're on the path to feeling better!</span>
+        </div>
+    </div>
+
+    <script>
+        // Show loading spinner and then reveal the results
+        setTimeout(() => {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('results-container').style.display = 'flex';
+            displayJoyfulMessages();
+        }, 3000);
+
+        // Display the message above the loading spinner
+        document.getElementById('result-message').style.display = 'block';
+
+        // Display multiple joyful messages based on score
+        function displayJoyfulMessages() {
+            const joyfulMessages = document.getElementById('joyful-messages');
+            const score = {{ score }};
+            let message;
+            if (score <= 2) {
+                message = "Your mental health is in great shape! Keep shining!";
+            } else if (score < 5) {
+                message = "You're doing well! Keep up the positive momentum.";
+            } else if (score < 10) {
+                message = "A little more self-care can make a big difference!";
+            } else if (score < 15) {
+                message = "Take things one step at a time. You're not alone.";
+            } else {
+                message = "It's okay to seek help. You're strong for reaching out.";
+            }
+
+            joyfulMessages.innerHTML = `<span class="typewriter">${message}</span>`;
+            joyfulMessages.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background Styling */
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background: linear-gradient(45deg, #a4e3ec, #b2ebf2, #80deea);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Container Styling */
+        .container {
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-in-out;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 100px;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 -20px 50px rgba(74, 158, 159, 0.581), /* Upper shadow */
+                    0 40px 50px  rgba(74, 158, 159, 0.582);  /* Lower shadow */
+  
+        }
+
+        /* Heading Styling */
+       
+h1 {
+    color:#069c94;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+   
+    animation: fadeInDown 1s ease-out;
+    background: linear-gradient(45deg, #006064, #00838f, #0097a7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 700;
+    color: transparent;
+    background-size: 200% auto;
+    animation: textGradient 5s linear infinite;
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes textGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+        /* Form and Label Styling */
+        label {
+            font-size: 1.4em;
+            font-weight: 500;
+            color:#069c94;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Textarea Styling */
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            resize: vertical;
+            background: #28b1b646;
+            transition: all 0.3s;
+        }
+
+        textarea:focus {
+            border-color: #74ebd5;
+            outline: none;
+            box-shadow: 0 0 5px rgba(116, 235, 213, 0.5);
+        }
+
+        /* Button Styling */
+        input[type="submit"] {
+            background-color:#069c94;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            display: block;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #069c94;
+        }
+
+        /* Result Styling */
+        .result {
+            background-color: #f1f3f5;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            color:#666;
+            animation: fadeInUp 0.5s ease-in-out;
+        }
+
+        .result h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #069c94;
+        }
+
+        .result p {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        .result p strong {
+            color:  #069c94;
+        }
+        .nav-logo p {
+            color: white;
+            font-size: 30px;
+            font-weight: 600;
+            animation: colorScale 3s ease-in-out infinite;
+        }
+        .nav{
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            background: radial-gradient(circle, rgba(83, 207, 211, 0.688) 30%, rgba(62, 207, 244, 0.4));
+            z-index: 100;
+            animation: navSlideIn 0.5s ease-in-out;
+        }
+        @keyframes navSlideIn {
+            0% {
+            transform: translateY(-100%);
+            }
+            100% {
+            transform: translateY(0);
+            }
+        }
+
+        .nav-menu ul{
+            display: flex;
+            }
+
+        .nav-menu ul li{
+            list-style-type: none;
+            font-size: 18px;
+            font-weight: bold;
+            color:#079ca1;
+            }
+        .nav-menu ul li a:hover{
+            color:#079ca1;
+            font-size:19px;
+            font-weight: 900;
+            }
+        .nav-menu ul li .link{
+            text-decoration: none;
+            font-weight: 700;
+            color:#05878c;
+            padding-bottom: 15px;
+            margin: 0 25px;
+            }
+
+        .link:hover, .active{
+            border-bottom: 2px solid #07b19d;
+
+        }
+        .nav-button .btn{
+            width: 130px;
+            height: 40px;
+            font-weight: 500;
+            background: rgba(5, 157, 155, 0.825);
+            border: none;
+            color:#fff;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover{
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color:#05878c;
+        }
+        #registerBtn{
+            margin-left: 15px;
+        }
+        .btn.white-btn{
+            background:  rgba(5, 157, 155, 0.825);
+            color: #fff;
+            }
+        .btn.btn.white-btn:hover{
+            background: rgba(255, 255, 255, 0.5);
+            color:#079ca1;
+            }
+        .nav-menu-btn{
+            display: none;
+        }
+        @media only screen and (max-width: 786px){
+    .nav-button{
+        display: none;
+    }
+    .nav-menu.responsive{
+        top: 100px;
+    }
+    .nav-menu{
+        position: absolute;
+        top: -800px;
+        display: flex;
+        justify-content: center;
+        background: rgba(5, 132, 134, 0.211);
+        width: 100%;
+        height: 90vh;
+        backdrop-filter: blur(20px);
+        transition: .3s;
+    }
+    .nav-menu ul{
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-menu-btn{
+        display: block;
+    }
+    .nav-menu-btn i{
+        font-size: 25px;
+        color: #fff;
+        padding: 10px;
+        background: rgba(5, 136, 119, 0.599);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .3s;
+    }
+    .nav-menu-btn i:hover{
+        background: rgba(255, 255, 255, 0.15);
+    }
+    .nav-menu ul li{
+    list-style-type: none;
+    font-size: 18px;
+    font-weight: bold;
+     color:#fff;
+}
+.nav-menu ul li a:hover{
+    color:#fff;
+    font-size:20px;
+    
+}
+.nav-menu ul li .link{
+    text-decoration: none;
+    font-weight: 700;
+    color:#fff;
+    padding-bottom: 15px;
+    margin: 0 25px;
+}
+
+.link:hover, .active{
+    border-bottom: 2px solid #07b19d;
+   
+}
+}
+@keyframes colorScale {
+    0% {
+        color: #07a3a9;
+        transform: scale(1.1);
+    }
+    50% {
+        color: #079ca1; /* You can change this to any color you prefer */
+        transform: scale(1.2); /* Slightly scales up the text */
+    }
+    100% {
+        color: #006064;
+        transform: scale(1.1);
+    }
+}
+ 
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
