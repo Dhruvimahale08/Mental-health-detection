@@ -1,41 +1,106 @@
-# Mental-health-detection
-# Calmsea: Mental Health Detection System
+# 🌊 Calmsea: Mental Health Detection System
 
-## Project Overview
+![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-2.0-lightgrey?logo=flask)
+![ML](https://img.shields.io/badge/Machine%20Learning-Enabled-brightgreen?logo=scikit-learn)
+![License](https://img.shields.io/badge/License-Academic-orange)
 
-**Calmsea** is a web-based mental health detection system that combines a stress-level questionnaire and text analysis to provide early warnings and support for individuals potentially experiencing mental health issues. The system is built using machine learning and natural language processing techniques and features a user-friendly Flask interface.
+---
 
-## Project Objectives
+## 🧠 Project Overview
 
-- Develop an efficient ML model to detect mental health conditions from user input.
-- Incorporate a question-answer-based stress checker.
-- Build a web interface with Flask for user interaction.
-- Continuously optimize the model for better performance.
-- Support UN Sustainable Development Goal 3: Good Health and Well-Being.
+**Calmsea** is a smart, web-based system designed to **detect early signs of mental health conditions** through:
+- Stress-level questionnaires 🧾
+- Text analysis powered by **Machine Learning & NLP** 💬
 
-## Features
+Built with 🧪 **Flask** and deployed on a user-friendly web interface, it empowers users to reflect on their mental well-being with personalized, AI-powered feedback.
 
-- **User Authentication**: Login/Sign-Up functionality.
-- **Stress Assessment**: Questionnaire-based stress level evaluation.
-- **Text-Based Analysis**: NLP model for analyzing user-provided text.
-- **Personalized Feedback**: Email-based responses with recommendations.
-- **Early Detection**: Aimed at identifying early signs of mental distress.
-- **Future Scope**:
-  - Audio sentiment analysis.
-  - Personalized suggestions using historical data.
-  - Mobile application and cloud deployment.
-  - Telehealth support integration.
+---
 
-## Flowchart
+## 🎯 Project Objectives
 
+- ✅ Develop an ML model to detect mental health issues via user input.
+- ✅ Integrate a stress assessment questionnaire.
+- ✅ Provide mental health recommendations through email.
+- ✅ Make the system accessible through a Flask-based web app.
+- ✅ Align with **UN SDG Goal 3: Good Health and Well-being**.
 
-## Technologies Used
+---
 
-- Python
-- Flask
-- Machine Learning (Text Classification)
-- Natural Language Processing
-- Email API (for personalized messages)
-- HTML/CSS (for front-end)
+## 🔄 Workflow
+
+ ![Screenshot 2025-05-10 102649](https://github.com/user-attachments/assets/064791a9-2fe7-46c9-9205-7a0abb9fbc01)
 
 
+
+## 🛠️ Technologies Used
+
+| Technology     | Purpose                          |
+|----------------|----------------------------------|
+| 🐍 Python       | Core programming language        |
+| 🌐 Flask        | Web application framework        |
+| 🧠 ML / NLP     | Mental health prediction         |
+| 💌 Email API    | Sending personalized messages    |
+| 🖥️ HTML/CSS     | Front-end design                 |
+
+---
+
+## 🚀 Setup Instructions
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/calmsea-mental-health.git
+   cd calmsea-mental-health
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Run the app**:
+   ```bash
+   python app.py
+   ```
+
+4. **Open in browser**:
+   ```
+   http://127.0.0.1:5000/
+   ```
+
+---
+
+## 📦 Features
+
+- 🧑‍⚕️ Stress questionnaire & scoring
+- ✍️ Text-based mental health detection
+- 📧 Personalized email recommendations
+- 🔒 Secure user login system
+- 🔄 Easy-to-use web interface
+
+---
+
+## 🌱 Future Scope
+
+- 🎙️ Voice tone detection for emotion tracking
+- 📱 Mobile app with cloud scalability
+- 🧾 Personalized insights based on user history
+- 🧑‍💻 Telehealth integration for professional help
+
+---
+
+## 👥 Team
+
+- **Dhruvi Mahale** – 22CS036  
+- **Dhruvi Patel** – 22CS053  
+👨‍🏫 *Guided by Dr. Amit Thakkar*
+
+---
+
+## 📘 License
+
+This project is developed for academic purposes under the guidance of CHARUSAT, Department of Computer Science & Engineering.
+
+---
+
+> 💬 *“Mental health matters — Calmsea helps make the first step easier.”*
